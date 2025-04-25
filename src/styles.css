@@ -1,8 +1,30 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
-
 body {
-  @apply font-mono;
   font-family: "Space Mono", monospace;
   background-image: url("../public/bg4.svg");
+  color: var(--font-col);
 }
+
+:root {
+  --primary: #85193c;
+  --secondary: #c5172e;
+  --secondary-second: #ffa500;
+  --secondary-third: #ffb74d;
+  --tertiary: #fcf259;
+  --font-col: #cac0be;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px #a69d9a;
+}
+.text-gradient {
+  background: linear-gradient(
+    to right,
+    var(--tertiary),
+    var(--secondary-second)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+

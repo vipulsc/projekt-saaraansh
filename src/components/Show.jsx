@@ -1,11 +1,9 @@
-import React from 'react'
+import Search from "./Search";
 
 const Show = () => {
-  return (
-	<div>
-	  
-	</div>
-  )
-}
+  return <div>
 
-export default Show
+  </div>;
+};
+
+export default Show;
