@@ -4,4 +4,5 @@
 body {
   @apply font-mono;
   font-family: "Space Mono", monospace;
+  background-image: url("../public/bg4.svg");
 }
