@@ -15,8 +15,8 @@ const Nav = () => {
       >
         <div>
           <img
-            src="logo.svg"
-            className="cursor-pointer w-24 h-24 transform translate-y-[-5px] shadow-[0_4px_30px_rgba(252,242,89,0.6)] transition-all ease-in-out duration-300"
+            src="swap.svg"
+            className="cursor-pointer w-14 h-14"
             alt="S"
             onClick={handleClick}
           />
@@ -28,12 +28,17 @@ const Nav = () => {
               after:bg-amber-300 after:origin-right after:scale-x-0 
               after:transition-transform after:duration-500 hover:after:scale-x-100"
           >
-            <span className={text === "सारांश" ? "font-sans" : ""}>{text}</span>
+            <span
+              className={text === "सारांश" ? "font-sans" : ""}
+              onClick={() => window.location.reload()}
+            >
+              {text}
+            </span>
           </p>
         </div>
       </nav>
       <div className="flex flex-col text-center mt-14 mb-14 pl-2 pr-2">
-        <p className="text-xl md:text-3xl text-primary/80">
+        <div className="text-xl md:text-3xl text-primary/80">
           Elevate your reading with{" "}
           <span className="underline text-gradient hover:underline-offset-4 font-extrabold cursor-pointer">
             SaaRaansH
@@ -43,7 +48,7 @@ const Nav = () => {
             {" "}
             Designed to streamline content effortlessly.
           </p>
-        </p>
+        </div>
       </div>
     </div>
   );
