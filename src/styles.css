@@ -1,8 +1,8 @@
-@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@import "tailwindcss";
 body {
   font-family: "Space Mono", monospace;
-  background-image: url("../public/bg4.svg");
+  background-image: url("../bg4.svg");
   color: var(--font-col);
 }
 

@@ -20,8 +20,16 @@ const Hero = () => {
     const articlesFromLocalStorage = JSON.parse(
       localStorage.getItem("articles")
     );
-    if (articlesFromLocalStorage) {
+
+    if (articlesFromLocalStorage && articlesFromLocalStorage.length > 0) {
       setAllArticles(articlesFromLocalStorage);
+    } else {
+      const demoArticle = {
+        url: "https://example.com/demo-article",
+        summary: "This is a demo summary for the pre-existing article link.",
+      };
+      setAllArticles([demoArticle]);
+      localStorage.setItem("articles", JSON.stringify([demoArticle]));
     }
   }, []);
 
