@@ -52,7 +52,8 @@ const Hero = () => {
     }
   };
 
-  const handleCopy = (copyUrl) => {
+  const handleCopy = (e, copyUrl) => {
+    e.stopPropagation();
     setCopied(copyUrl);
     navigator.clipboard.writeText(copyUrl);
     setTimeout(() => setCopied(false), 3000);
@@ -72,7 +73,7 @@ const Hero = () => {
               value={article.url}
               onChange={(e) => setArticle({ ...article, url: e.target.value })}
               required
-              className="w-full h-16 text-xl px-6 py-3 placeholder:text-background/50 focus:placeholder:text-foreground focus:border-[#fcf259] focus:ring-2 focus:ring-[#fcf259] focus:outline-none bg-transparent border-2 border-[#c5172e] transition-all duration-500 ease-in-out"
+              className="w-full h-16 text-xl px-6 py-3 placeholder:text-muted-foreground focus:placeholder:text-foreground focus:border-[#fcf259] focus:ring-2 focus:ring-[#fcf259] focus:outline-none bg-transparent border-2 border-[#c5172e] transition-all duration-500 ease-in-out"
             />
             <button
               type="submit"
@@ -117,7 +118,10 @@ const Hero = () => {
                 onClick={() => setArticle(item)}
                 className="link_card cursor-pointer hover:bg-muted/30 p-2 rounded-lg transition"
               >
-                <div className="copy_btn" onClick={() => handleCopy(item.url)}>
+                <div
+                  className="copy_btn"
+                  onClick={(e) => handleCopy(e, item.url)}
+                >
                   <img
                     src={copied === item.url ? tick : copy}
                     alt="copy_icon"
@@ -181,7 +185,10 @@ const Hero = () => {
           {/* Modal */}
           {isModalOpen && (
             <div className="fixed inset-0 bg-[#85193c] bg-opacity-50 flex justify-center items-center z-50">
-              <div className="bg-white p-6 rounded-lg w-full max-w-lg relative opacity-100 transition-all duration-300">
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className="bg-white p-6 rounded-lg w-full max-w-lg relative opacity-100 transition-all duration-300"
+              >
                 <button
                   onClick={handleCloseModal}
                   className="absolute top-3 left-4 text-2xl text-[#c5172e] hover:text-[#85193c]"
