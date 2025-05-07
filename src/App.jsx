@@ -2,12 +2,13 @@ import React from "react";
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-
+import { Analytics } from "@vercel/analytics/react";
 import "./App.css";
 
 const App = () => {
   return (
     <>
+      <Analytics />
       <div className="font-[Space_Mono] tracking-widest min-h-screen flex flex-col">
         <div
           className="overflow-hidden cursor-pointer bg-black text-white p-2 mb-3"
